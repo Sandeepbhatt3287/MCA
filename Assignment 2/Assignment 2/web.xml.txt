@@ -1,0 +1,39 @@
+<web-app>
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>ValidateLoginServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ResultServelt</servlet-name>
+        <servlet-class>ShowAllResultServelt</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>InsertServlet</servlet-name>
+        <servlet-class>InsertDataServlet</servlet-class>
+    </servlet>
+
+
+
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ResultServelt</servlet-name>
+        <url-pattern>/result.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>InsertServlet</servlet-name>
+        <url-pattern>/insertdata.do</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+</web-app>
