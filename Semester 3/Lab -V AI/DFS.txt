@@ -1,0 +1,75 @@
+'''Python program to print DFS traversal for complete graph'''
+from collections import defaultdict
+
+
+class Graph:
+	# Constructor
+	def __init__(self):
+		# default dictionary to store graph
+		self.graph=defaultdict(list)
+	
+	# Function to add an edge to graph
+	def addEdge(self,u,v):
+		self.graph[u].append(v)
+        
+	def DFSUtil(self,v,visited):
+		# Mark the current node as visited and print it
+		visited.add(v)
+		print(v)
+		
+		# recur for all the vertices adjacent to this vertex
+		for neighbour in self.graph[v]:
+			if neighbour not in visited:
+				self.DFSUtil(neighbour,visited)
+                
+	def DFS(self):
+		visited=set()
+		# vertices one by one
+		for vertex in self.graph:
+			if vertex not in visited:
+				self.DFSUtil(vertex,visited)
+
+g=Graph()
+g.addEdge('A','B')
+g.addEdge('A','D')
+g.addEdge('A','G')
+g.addEdge('A','I')
+g.addEdge('B','D')
+g.addEdge('B','C')
+g.addEdge('C','A')
+g.addEdge('C','E')
+g.addEdge('D','F')
+g.addEdge('D','C')
+g.addEdge('E','F')
+g.addEdge('E','J')
+g.addEdge('F','H')
+g.addEdge('F','C')
+g.addEdge('G','F')
+g.addEdge('G','K')
+g.addEdge('H','K')
+g.addEdge('H','E')
+g.addEdge('H','L')
+g.addEdge('I','S')
+g.addEdge('J','S')
+g.addEdge('L','J')
+g.addEdge('L','F')
+g.addEdge('S','K')
+
+g.DFS()
+
+
+
+Output:
+A
+B
+D
+F
+H
+K
+E
+J
+S
+L
+C
+G
+I
